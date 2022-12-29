@@ -12,6 +12,17 @@ contract Auctionhouse is ReentrancyGuard {
     uint256 public immutable feePercent;
     uint256 public itemCount;
 
+    // Add item struct
+    struct Item {
+        uint256 itemId;
+        IERC721 nft;
+        uint256 tokenId;
+        address payable owner;
+        uint256 status;
+    }
+
+    mapping(uint => Item) public items;
+
     constructor(uint256 _feePercent) {
         feeAccount = payable(msg.sender);
         feePercent = _feePercent;

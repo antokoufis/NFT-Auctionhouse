@@ -1,0 +1,861 @@
+{
+    "contractName": "Auctionhouse",
+    "abi": [
+        {
+            "inputs": [
+                {
+                    "internalType": "uint256",
+                    "name": "_feePercent",
+                    "type": "uint256"
+                }
+            ],
+            "stateMutability": "nonpayable",
+            "type": "constructor"
+        },
+        {
+            "inputs": [],
+            "name": "feeAccount",
+            "outputs": [
+                {
+                    "internalType": "address payable",
+                    "name": "",
+                    "type": "address"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "inputs": [],
+            "name": "feePercent",
+            "outputs": [
+                {
+                    "internalType": "uint256",
+                    "name": "",
+                    "type": "uint256"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "inputs": [],
+            "name": "itemCount",
+            "outputs": [
+                {
+                    "internalType": "uint256",
+                    "name": "",
+                    "type": "uint256"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "uint256",
+                    "name": "",
+                    "type": "uint256"
+                }
+            ],
+            "name": "items",
+            "outputs": [
+                {
+                    "internalType": "uint256",
+                    "name": "itemId",
+                    "type": "uint256"
+                },
+                {
+                    "internalType": "contract IERC721",
+                    "name": "nft",
+                    "type": "address"
+                },
+                {
+                    "internalType": "uint256",
+                    "name": "tokenId",
+                    "type": "uint256"
+                },
+                {
+                    "internalType": "address payable",
+                    "name": "owner",
+                    "type": "address"
+                },
+                {
+                    "internalType": "uint256",
+                    "name": "status",
+                    "type": "uint256"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "contract IERC721",
+                    "name": "_nft",
+                    "type": "address"
+                },
+                {
+                    "internalType": "uint256",
+                    "name": "_tokenId",
+                    "type": "uint256"
+                }
+            ],
+            "name": "makeItem",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+        }
+    ],
+    "metadata": "{\"compiler\":{\"version\":\"0.8.17+commit.8df45f5f\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_feePercent\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"inputs\":[],\"name\":\"feeAccount\",\"outputs\":[{\"internalType\":\"address payable\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"feePercent\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"itemCount\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"items\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"itemId\",\"type\":\"uint256\"},{\"internalType\":\"contract IERC721\",\"name\":\"nft\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"},{\"internalType\":\"address payable\",\"name\":\"owner\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"status\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"contract IERC721\",\"name\":\"_nft\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"_tokenId\",\"type\":\"uint256\"}],\"name\":\"makeItem\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/home/antokoufis/Desktop/NFT-Auctionhouse/src/backend/contracts/Auctionhouse.sol\":\"Auctionhouse\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/home/antokoufis/Desktop/NFT-Auctionhouse/node_modules/@openzeppelin/contracts/security/ReentrancyGuard.sol\":{\"keccak256\":\"0x0e9621f60b2faabe65549f7ed0f24e8853a45c1b7990d47e8160e523683f3935\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://287a2f8d5814dd0f05f22b740f18ca8321acc21c9bd03a6cb2203ea626e2f3f2\",\"dweb:/ipfs/QmZRQv9iuwU817VuqkA2WweiaibKii69x9QxYBBEfbNEud\"]},\"/home/antokoufis/Desktop/NFT-Auctionhouse/node_modules/@openzeppelin/contracts/token/ERC721/IERC721.sol\":{\"keccak256\":\"0x516a22876c1fab47f49b1bc22b4614491cd05338af8bd2e7b382da090a079990\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://a439187f7126d31add4557f82d8aed6be0162007cd7182c48fd934dbab8f3849\",\"dweb:/ipfs/QmRPLguRFvrRJS7r6F1bcLvsx6q1VrgjEpZafyeL8D7xZh\"]},\"/home/antokoufis/Desktop/NFT-Auctionhouse/node_modules/@openzeppelin/contracts/utils/introspection/IERC165.sol\":{\"keccak256\":\"0x447a5f3ddc18419d41ff92b3773fb86471b1db25773e07f877f548918a185bf1\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://be161e54f24e5c6fae81a12db1a8ae87bc5ae1b0ddc805d82a1440a68455088f\",\"dweb:/ipfs/QmP7C3CHdY9urF4dEMb9wmsp1wMxHF6nhA2yQE5SKiPAdy\"]},\"/home/antokoufis/Desktop/NFT-Auctionhouse/src/backend/contracts/Auctionhouse.sol\":{\"keccak256\":\"0xbbe12aae295960f01cdebff7f867963dbcda78320516a013cbb6c4d9c0b46bff\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://20b1295acf558941aa35c265efd1dcdcf4ce2e4d46d2d5b43bca7a074ba5ffe7\",\"dweb:/ipfs/QmSn6g3uXv1Hcn5uGemKikLkXy8KXoyB7UPVow9LpE58Vw\"]}},\"version\":1}",
+    "bytecode": "60c060405234801561001057600080fd5b506040516102d23803806102d283398101604081905261002f91610040565b60016000553360805260a052610059565b60006020828403121561005257600080fd5b5051919050565b60805160a05161025661007c600039600060d101526000607601526102566000f3fe608060405234801561001057600080fd5b50600436106100575760003560e01c80631a1beae21461005c57806365e17c9d146100715780636bfb0d01146100b55780637fd6f15c146100cc578063bfb231d2146100f3575b600080fd5b61006f61006a3660046101cf565b610170565b005b6100987f000000000000000000000000000000000000000000000000000000000000000081565b6040516001600160a01b0390911681526020015b60405180910390f35b6100be60015481565b6040519081526020016100ac565b6100be7f000000000000000000000000000000000000000000000000000000000000000081565b61013e610101366004610207565b60026020819052600091825260409091208054600182015492820154600383015460049093015491936001600160a01b0390811693919291169085565b604080519586526001600160a01b0394851660208701528501929092529091166060830152608082015260a0016100ac565b6002600054036101c65760405162461bcd60e51b815260206004820152601f60248201527f5265656e7472616e637947756172643a207265656e7472616e742063616c6c00604482015260640160405180910390fd5b50506001600055565b600080604083850312156101e257600080fd5b82356001600160a01b03811681146101f957600080fd5b946020939093013593505050565b60006020828403121561021957600080fd5b503591905056fea264697066735822122046747036f939271bf908f5bbe1b4f00417d2250b423ad3d38a930dd1e44d68b964736f6c63430008110033",
+    "deployedBytecode": "608060405234801561001057600080fd5b50600436106100575760003560e01c80631a1beae21461005c57806365e17c9d146100715780636bfb0d01146100b55780637fd6f15c146100cc578063bfb231d2146100f3575b600080fd5b61006f61006a3660046101cf565b610170565b005b6100987f000000000000000000000000000000000000000000000000000000000000000081565b6040516001600160a01b0390911681526020015b60405180910390f35b6100be60015481565b6040519081526020016100ac565b6100be7f000000000000000000000000000000000000000000000000000000000000000081565b61013e610101366004610207565b60026020819052600091825260409091208054600182015492820154600383015460049093015491936001600160a01b0390811693919291169085565b604080519586526001600160a01b0394851660208701528501929092529091166060830152608082015260a0016100ac565b6002600054036101c65760405162461bcd60e51b815260206004820152601f60248201527f5265656e7472616e637947756172643a207265656e7472616e742063616c6c00604482015260640160405180910390fd5b50506001600055565b600080604083850312156101e257600080fd5b82356001600160a01b03811681146101f957600080fd5b946020939093013593505050565b60006020828403121561021957600080fd5b503591905056fea264697066735822122046747036f939271bf908f5bbe1b4f00417d2250b423ad3d38a930dd1e44d68b964736f6c63430008110033",
+    "sourceMap": "291:651:3:-:0;;;746:116;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;1701:1:0;1806:7;:22;810:10:3;789:32;;831:24;;291:651;;14:184:4;84:6;137:2;125:9;116:7;112:23;108:32;105:52;;;153:1;150;143:12;105:52;-1:-1:-1;176:16:4;;14:184;-1:-1:-1;14:184:4:o;:::-;291:651:3;;;;;;;;;;;;;;;;;;",
+    "deployedSourceMap": "291:651:3:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;868:72;;;;;;:::i;:::-;;:::i;:::-;;376:43;;;;;;;;-1:-1:-1;;;;;568:32:4;;;550:51;;538:2;523:18;376:43:3;;;;;;;;501:24;;;;;;;;;758:25:4;;;746:2;731:18;501:24:3;612:177:4;460:35:3;;;;;705:34;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;;;;;705:34:3;;;;;;;;;;;;;;;1269:25:4;;;-1:-1:-1;;;;;1368:15:4;;;1363:2;1348:18;;1341:43;1400:18;;1393:34;;;;1463:15;;;1458:2;1443:18;;1436:43;1510:3;1495:19;;1488:35;1256:3;1241:19;705:34:3;979:550:4;868:72:3;1744:1:0;2325:7;;:19;2317:63;;;;-1:-1:-1;;;2317:63:0;;1736:2:4;2317:63:0;;;1718:21:4;1775:2;1755:18;;;1748:30;1814:33;1794:18;;;1787:61;1865:18;;2317:63:0;;;;;;;;-1:-1:-1;;1701:1:0;2455:7;2628:22;868:72:3:o;14:369:4:-;97:6;105;158:2;146:9;137:7;133:23;129:32;126:52;;;174:1;171;164:12;126:52;200:23;;-1:-1:-1;;;;;252:31:4;;242:42;;232:70;;298:1;295;288:12;232:70;321:5;373:2;358:18;;;;345:32;;-1:-1:-1;;;14:369:4:o;794:180::-;853:6;906:2;894:9;885:7;881:23;877:32;874:52;;;922:1;919;912:12;874:52;-1:-1:-1;945:23:4;;794:180;-1:-1:-1;794:180:4:o",
+    "sourcePath": "/home/antokoufis/Desktop/NFT-Auctionhouse/src/backend/contracts/Auctionhouse.sol",
+    "compiler": {
+        "name": "solc",
+        "version": "0.8.17+commit.8df45f5f"
+    },
+    "ast": {
+        "absolutePath": "/home/antokoufis/Desktop/NFT-Auctionhouse/src/backend/contracts/Auctionhouse.sol",
+        "exportedSymbols": {
+            "Auctionhouse": [
+                226
+            ],
+            "IERC165": [
+                167
+            ],
+            "IERC721": [
+                155
+            ],
+            "ReentrancyGuard": [
+                39
+            ]
+        },
+        "id": 227,
+        "license": "MIT",
+        "nodeType": "SourceUnit",
+        "nodes": [
+            {
+                "id": 169,
+                "literals": [
+                    "solidity",
+                    "^",
+                    "0.8",
+                    ".4"
+                ],
+                "nodeType": "PragmaDirective",
+                "src": "33:23:3"
+            },
+            {
+                "absolutePath": "/home/antokoufis/Desktop/NFT-Auctionhouse/node_modules/@openzeppelin/contracts/token/ERC721/IERC721.sol",
+                "file": "/home/antokoufis/Desktop/NFT-Auctionhouse/node_modules/@openzeppelin/contracts/token/ERC721/IERC721.sol",
+                "id": 170,
+                "nameLocation": "-1:-1:-1",
+                "nodeType": "ImportDirective",
+                "scope": 227,
+                "sourceUnit": 156,
+                "src": "58:113:3",
+                "symbolAliases": [],
+                "unitAlias": ""
+            },
+            {
+                "absolutePath": "/home/antokoufis/Desktop/NFT-Auctionhouse/node_modules/@openzeppelin/contracts/security/ReentrancyGuard.sol",
+                "file": "/home/antokoufis/Desktop/NFT-Auctionhouse/node_modules/@openzeppelin/contracts/security/ReentrancyGuard.sol",
+                "id": 171,
+                "nameLocation": "-1:-1:-1",
+                "nodeType": "ImportDirective",
+                "scope": 227,
+                "sourceUnit": 40,
+                "src": "172:117:3",
+                "symbolAliases": [],
+                "unitAlias": ""
+            },
+            {
+                "abstract": false,
+                "baseContracts": [
+                    {
+                        "baseName": {
+                            "id": 172,
+                            "name": "ReentrancyGuard",
+                            "nameLocations": [
+                                "316:15:3"
+                            ],
+                            "nodeType": "IdentifierPath",
+                            "referencedDeclaration": 39,
+                            "src": "316:15:3"
+                        },
+                        "id": 173,
+                        "nodeType": "InheritanceSpecifier",
+                        "src": "316:15:3"
+                    }
+                ],
+                "canonicalName": "Auctionhouse",
+                "contractDependencies": [],
+                "contractKind": "contract",
+                "fullyImplemented": true,
+                "id": 226,
+                "linearizedBaseContracts": [
+                    226,
+                    39
+                ],
+                "name": "Auctionhouse",
+                "nameLocation": "300:12:3",
+                "nodeType": "ContractDefinition",
+                "nodes": [
+                    {
+                        "constant": false,
+                        "functionSelector": "65e17c9d",
+                        "id": 175,
+                        "mutability": "immutable",
+                        "name": "feeAccount",
+                        "nameLocation": "409:10:3",
+                        "nodeType": "VariableDeclaration",
+                        "scope": 226,
+                        "src": "376:43:3",
+                        "stateVariable": true,
+                        "storageLocation": "default",
+                        "typeDescriptions": {
+                            "typeIdentifier": "t_address_payable",
+                            "typeString": "address payable"
+                        },
+                        "typeName": {
+                            "id": 174,
+                            "name": "address",
+                            "nodeType": "ElementaryTypeName",
+                            "src": "376:15:3",
+                            "stateMutability": "payable",
+                            "typeDescriptions": {
+                                "typeIdentifier": "t_address_payable",
+                                "typeString": "address payable"
+                            }
+                        },
+                        "visibility": "public"
+                    },
+                    {
+                        "constant": false,
+                        "functionSelector": "7fd6f15c",
+                        "id": 177,
+                        "mutability": "immutable",
+                        "name": "feePercent",
+                        "nameLocation": "485:10:3",
+                        "nodeType": "VariableDeclaration",
+                        "scope": 226,
+                        "src": "460:35:3",
+                        "stateVariable": true,
+                        "storageLocation": "default",
+                        "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                        },
+                        "typeName": {
+                            "id": 176,
+                            "name": "uint256",
+                            "nodeType": "ElementaryTypeName",
+                            "src": "460:7:3",
+                            "typeDescriptions": {
+                                "typeIdentifier": "t_uint256",
+                                "typeString": "uint256"
+                            }
+                        },
+                        "visibility": "public"
+                    },
+                    {
+                        "constant": false,
+                        "functionSelector": "6bfb0d01",
+                        "id": 179,
+                        "mutability": "mutable",
+                        "name": "itemCount",
+                        "nameLocation": "516:9:3",
+                        "nodeType": "VariableDeclaration",
+                        "scope": 226,
+                        "src": "501:24:3",
+                        "stateVariable": true,
+                        "storageLocation": "default",
+                        "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                        },
+                        "typeName": {
+                            "id": 178,
+                            "name": "uint256",
+                            "nodeType": "ElementaryTypeName",
+                            "src": "501:7:3",
+                            "typeDescriptions": {
+                                "typeIdentifier": "t_uint256",
+                                "typeString": "uint256"
+                            }
+                        },
+                        "visibility": "public"
+                    },
+                    {
+                        "canonicalName": "Auctionhouse.Item",
+                        "id": 191,
+                        "members": [
+                            {
+                                "constant": false,
+                                "id": 181,
+                                "mutability": "mutable",
+                                "name": "itemId",
+                                "nameLocation": "585:6:3",
+                                "nodeType": "VariableDeclaration",
+                                "scope": 191,
+                                "src": "577:14:3",
+                                "stateVariable": false,
+                                "storageLocation": "default",
+                                "typeDescriptions": {
+                                    "typeIdentifier": "t_uint256",
+                                    "typeString": "uint256"
+                                },
+                                "typeName": {
+                                    "id": 180,
+                                    "name": "uint256",
+                                    "nodeType": "ElementaryTypeName",
+                                    "src": "577:7:3",
+                                    "typeDescriptions": {
+                                        "typeIdentifier": "t_uint256",
+                                        "typeString": "uint256"
+                                    }
+                                },
+                                "visibility": "internal"
+                            },
+                            {
+                                "constant": false,
+                                "id": 184,
+                                "mutability": "mutable",
+                                "name": "nft",
+                                "nameLocation": "609:3:3",
+                                "nodeType": "VariableDeclaration",
+                                "scope": 191,
+                                "src": "601:11:3",
+                                "stateVariable": false,
+                                "storageLocation": "default",
+                                "typeDescriptions": {
+                                    "typeIdentifier": "t_contract$_IERC721_$155",
+                                    "typeString": "contract IERC721"
+                                },
+                                "typeName": {
+                                    "id": 183,
+                                    "nodeType": "UserDefinedTypeName",
+                                    "pathNode": {
+                                        "id": 182,
+                                        "name": "IERC721",
+                                        "nameLocations": [
+                                            "601:7:3"
+                                        ],
+                                        "nodeType": "IdentifierPath",
+                                        "referencedDeclaration": 155,
+                                        "src": "601:7:3"
+                                    },
+                                    "referencedDeclaration": 155,
+                                    "src": "601:7:3",
+                                    "typeDescriptions": {
+                                        "typeIdentifier": "t_contract$_IERC721_$155",
+                                        "typeString": "contract IERC721"
+                                    }
+                                },
+                                "visibility": "internal"
+                            },
+                            {
+                                "constant": false,
+                                "id": 186,
+                                "mutability": "mutable",
+                                "name": "tokenId",
+                                "nameLocation": "630:7:3",
+                                "nodeType": "VariableDeclaration",
+                                "scope": 191,
+                                "src": "622:15:3",
+                                "stateVariable": false,
+                                "storageLocation": "default",
+                                "typeDescriptions": {
+                                    "typeIdentifier": "t_uint256",
+                                    "typeString": "uint256"
+                                },
+                                "typeName": {
+                                    "id": 185,
+                                    "name": "uint256",
+                                    "nodeType": "ElementaryTypeName",
+                                    "src": "622:7:3",
+                                    "typeDescriptions": {
+                                        "typeIdentifier": "t_uint256",
+                                        "typeString": "uint256"
+                                    }
+                                },
+                                "visibility": "internal"
+                            },
+                            {
+                                "constant": false,
+                                "id": 188,
+                                "mutability": "mutable",
+                                "name": "owner",
+                                "nameLocation": "663:5:3",
+                                "nodeType": "VariableDeclaration",
+                                "scope": 191,
+                                "src": "647:21:3",
+                                "stateVariable": false,
+                                "storageLocation": "default",
+                                "typeDescriptions": {
+                                    "typeIdentifier": "t_address_payable",
+                                    "typeString": "address payable"
+                                },
+                                "typeName": {
+                                    "id": 187,
+                                    "name": "address",
+                                    "nodeType": "ElementaryTypeName",
+                                    "src": "647:15:3",
+                                    "stateMutability": "payable",
+                                    "typeDescriptions": {
+                                        "typeIdentifier": "t_address_payable",
+                                        "typeString": "address payable"
+                                    }
+                                },
+                                "visibility": "internal"
+                            },
+                            {
+                                "constant": false,
+                                "id": 190,
+                                "mutability": "mutable",
+                                "name": "status",
+                                "nameLocation": "686:6:3",
+                                "nodeType": "VariableDeclaration",
+                                "scope": 191,
+                                "src": "678:14:3",
+                                "stateVariable": false,
+                                "storageLocation": "default",
+                                "typeDescriptions": {
+                                    "typeIdentifier": "t_uint256",
+                                    "typeString": "uint256"
+                                },
+                                "typeName": {
+                                    "id": 189,
+                                    "name": "uint256",
+                                    "nodeType": "ElementaryTypeName",
+                                    "src": "678:7:3",
+                                    "typeDescriptions": {
+                                        "typeIdentifier": "t_uint256",
+                                        "typeString": "uint256"
+                                    }
+                                },
+                                "visibility": "internal"
+                            }
+                        ],
+                        "name": "Item",
+                        "nameLocation": "562:4:3",
+                        "nodeType": "StructDefinition",
+                        "scope": 226,
+                        "src": "555:144:3",
+                        "visibility": "public"
+                    },
+                    {
+                        "constant": false,
+                        "functionSelector": "bfb231d2",
+                        "id": 196,
+                        "mutability": "mutable",
+                        "name": "items",
+                        "nameLocation": "734:5:3",
+                        "nodeType": "VariableDeclaration",
+                        "scope": 226,
+                        "src": "705:34:3",
+                        "stateVariable": true,
+                        "storageLocation": "default",
+                        "typeDescriptions": {
+                            "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Item_$191_storage_$",
+                            "typeString": "mapping(uint256 => struct Auctionhouse.Item)"
+                        },
+                        "typeName": {
+                            "id": 195,
+                            "keyType": {
+                                "id": 192,
+                                "name": "uint",
+                                "nodeType": "ElementaryTypeName",
+                                "src": "713:4:3",
+                                "typeDescriptions": {
+                                    "typeIdentifier": "t_uint256",
+                                    "typeString": "uint256"
+                                }
+                            },
+                            "nodeType": "Mapping",
+                            "src": "705:21:3",
+                            "typeDescriptions": {
+                                "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Item_$191_storage_$",
+                                "typeString": "mapping(uint256 => struct Auctionhouse.Item)"
+                            },
+                            "valueType": {
+                                "id": 194,
+                                "nodeType": "UserDefinedTypeName",
+                                "pathNode": {
+                                    "id": 193,
+                                    "name": "Item",
+                                    "nameLocations": [
+                                        "721:4:3"
+                                    ],
+                                    "nodeType": "IdentifierPath",
+                                    "referencedDeclaration": 191,
+                                    "src": "721:4:3"
+                                },
+                                "referencedDeclaration": 191,
+                                "src": "721:4:3",
+                                "typeDescriptions": {
+                                    "typeIdentifier": "t_struct$_Item_$191_storage_ptr",
+                                    "typeString": "struct Auctionhouse.Item"
+                                }
+                            }
+                        },
+                        "visibility": "public"
+                    },
+                    {
+                        "body": {
+                            "id": 213,
+                            "nodeType": "Block",
+                            "src": "779:83:3",
+                            "statements": [
+                                {
+                                    "expression": {
+                                        "id": 207,
+                                        "isConstant": false,
+                                        "isLValue": false,
+                                        "isPure": false,
+                                        "lValueRequested": false,
+                                        "leftHandSide": {
+                                            "id": 201,
+                                            "name": "feeAccount",
+                                            "nodeType": "Identifier",
+                                            "overloadedDeclarations": [],
+                                            "referencedDeclaration": 175,
+                                            "src": "789:10:3",
+                                            "typeDescriptions": {
+                                                "typeIdentifier": "t_address_payable",
+                                                "typeString": "address payable"
+                                            }
+                                        },
+                                        "nodeType": "Assignment",
+                                        "operator": "=",
+                                        "rightHandSide": {
+                                            "arguments": [
+                                                {
+                                                    "expression": {
+                                                        "id": 204,
+                                                        "name": "msg",
+                                                        "nodeType": "Identifier",
+                                                        "overloadedDeclarations": [],
+                                                        "referencedDeclaration": 4294967281,
+                                                        "src": "810:3:3",
+                                                        "typeDescriptions": {
+                                                            "typeIdentifier": "t_magic_message",
+                                                            "typeString": "msg"
+                                                        }
+                                                    },
+                                                    "id": 205,
+                                                    "isConstant": false,
+                                                    "isLValue": false,
+                                                    "isPure": false,
+                                                    "lValueRequested": false,
+                                                    "memberLocation": "814:6:3",
+                                                    "memberName": "sender",
+                                                    "nodeType": "MemberAccess",
+                                                    "src": "810:10:3",
+                                                    "typeDescriptions": {
+                                                        "typeIdentifier": "t_address",
+                                                        "typeString": "address"
+                                                    }
+                                                }
+                                            ],
+                                            "expression": {
+                                                "argumentTypes": [
+                                                    {
+                                                        "typeIdentifier": "t_address",
+                                                        "typeString": "address"
+                                                    }
+                                                ],
+                                                "id": 203,
+                                                "isConstant": false,
+                                                "isLValue": false,
+                                                "isPure": true,
+                                                "lValueRequested": false,
+                                                "nodeType": "ElementaryTypeNameExpression",
+                                                "src": "802:8:3",
+                                                "typeDescriptions": {
+                                                    "typeIdentifier": "t_type$_t_address_payable_$",
+                                                    "typeString": "type(address payable)"
+                                                },
+                                                "typeName": {
+                                                    "id": 202,
+                                                    "name": "address",
+                                                    "nodeType": "ElementaryTypeName",
+                                                    "src": "802:8:3",
+                                                    "stateMutability": "payable",
+                                                    "typeDescriptions": {}
+                                                }
+                                            },
+                                            "id": 206,
+                                            "isConstant": false,
+                                            "isLValue": false,
+                                            "isPure": false,
+                                            "kind": "typeConversion",
+                                            "lValueRequested": false,
+                                            "nameLocations": [],
+                                            "names": [],
+                                            "nodeType": "FunctionCall",
+                                            "src": "802:19:3",
+                                            "tryCall": false,
+                                            "typeDescriptions": {
+                                                "typeIdentifier": "t_address_payable",
+                                                "typeString": "address payable"
+                                            }
+                                        },
+                                        "src": "789:32:3",
+                                        "typeDescriptions": {
+                                            "typeIdentifier": "t_address_payable",
+                                            "typeString": "address payable"
+                                        }
+                                    },
+                                    "id": 208,
+                                    "nodeType": "ExpressionStatement",
+                                    "src": "789:32:3"
+                                },
+                                {
+                                    "expression": {
+                                        "id": 211,
+                                        "isConstant": false,
+                                        "isLValue": false,
+                                        "isPure": false,
+                                        "lValueRequested": false,
+                                        "leftHandSide": {
+                                            "id": 209,
+                                            "name": "feePercent",
+                                            "nodeType": "Identifier",
+                                            "overloadedDeclarations": [],
+                                            "referencedDeclaration": 177,
+                                            "src": "831:10:3",
+                                            "typeDescriptions": {
+                                                "typeIdentifier": "t_uint256",
+                                                "typeString": "uint256"
+                                            }
+                                        },
+                                        "nodeType": "Assignment",
+                                        "operator": "=",
+                                        "rightHandSide": {
+                                            "id": 210,
+                                            "name": "_feePercent",
+                                            "nodeType": "Identifier",
+                                            "overloadedDeclarations": [],
+                                            "referencedDeclaration": 198,
+                                            "src": "844:11:3",
+                                            "typeDescriptions": {
+                                                "typeIdentifier": "t_uint256",
+                                                "typeString": "uint256"
+                                            }
+                                        },
+                                        "src": "831:24:3",
+                                        "typeDescriptions": {
+                                            "typeIdentifier": "t_uint256",
+                                            "typeString": "uint256"
+                                        }
+                                    },
+                                    "id": 212,
+                                    "nodeType": "ExpressionStatement",
+                                    "src": "831:24:3"
+                                }
+                            ]
+                        },
+                        "id": 214,
+                        "implemented": true,
+                        "kind": "constructor",
+                        "modifiers": [],
+                        "name": "",
+                        "nameLocation": "-1:-1:-1",
+                        "nodeType": "FunctionDefinition",
+                        "parameters": {
+                            "id": 199,
+                            "nodeType": "ParameterList",
+                            "parameters": [
+                                {
+                                    "constant": false,
+                                    "id": 198,
+                                    "mutability": "mutable",
+                                    "name": "_feePercent",
+                                    "nameLocation": "766:11:3",
+                                    "nodeType": "VariableDeclaration",
+                                    "scope": 214,
+                                    "src": "758:19:3",
+                                    "stateVariable": false,
+                                    "storageLocation": "default",
+                                    "typeDescriptions": {
+                                        "typeIdentifier": "t_uint256",
+                                        "typeString": "uint256"
+                                    },
+                                    "typeName": {
+                                        "id": 197,
+                                        "name": "uint256",
+                                        "nodeType": "ElementaryTypeName",
+                                        "src": "758:7:3",
+                                        "typeDescriptions": {
+                                            "typeIdentifier": "t_uint256",
+                                            "typeString": "uint256"
+                                        }
+                                    },
+                                    "visibility": "internal"
+                                }
+                            ],
+                            "src": "757:21:3"
+                        },
+                        "returnParameters": {
+                            "id": 200,
+                            "nodeType": "ParameterList",
+                            "parameters": [],
+                            "src": "779:0:3"
+                        },
+                        "scope": 226,
+                        "src": "746:116:3",
+                        "stateMutability": "nonpayable",
+                        "virtual": false,
+                        "visibility": "public"
+                    },
+                    {
+                        "body": {
+                            "id": 224,
+                            "nodeType": "Block",
+                            "src": "937:3:3",
+                            "statements": []
+                        },
+                        "functionSelector": "1a1beae2",
+                        "id": 225,
+                        "implemented": true,
+                        "kind": "function",
+                        "modifiers": [
+                            {
+                                "id": 222,
+                                "kind": "modifierInvocation",
+                                "modifierName": {
+                                    "id": 221,
+                                    "name": "nonReentrant",
+                                    "nameLocations": [
+                                        "924:12:3"
+                                    ],
+                                    "nodeType": "IdentifierPath",
+                                    "referencedDeclaration": 38,
+                                    "src": "924:12:3"
+                                },
+                                "nodeType": "ModifierInvocation",
+                                "src": "924:12:3"
+                            }
+                        ],
+                        "name": "makeItem",
+                        "nameLocation": "877:8:3",
+                        "nodeType": "FunctionDefinition",
+                        "parameters": {
+                            "id": 220,
+                            "nodeType": "ParameterList",
+                            "parameters": [
+                                {
+                                    "constant": false,
+                                    "id": 217,
+                                    "mutability": "mutable",
+                                    "name": "_nft",
+                                    "nameLocation": "894:4:3",
+                                    "nodeType": "VariableDeclaration",
+                                    "scope": 225,
+                                    "src": "886:12:3",
+                                    "stateVariable": false,
+                                    "storageLocation": "default",
+                                    "typeDescriptions": {
+                                        "typeIdentifier": "t_contract$_IERC721_$155",
+                                        "typeString": "contract IERC721"
+                                    },
+                                    "typeName": {
+                                        "id": 216,
+                                        "nodeType": "UserDefinedTypeName",
+                                        "pathNode": {
+                                            "id": 215,
+                                            "name": "IERC721",
+                                            "nameLocations": [
+                                                "886:7:3"
+                                            ],
+                                            "nodeType": "IdentifierPath",
+                                            "referencedDeclaration": 155,
+                                            "src": "886:7:3"
+                                        },
+                                        "referencedDeclaration": 155,
+                                        "src": "886:7:3",
+                                        "typeDescriptions": {
+                                            "typeIdentifier": "t_contract$_IERC721_$155",
+                                            "typeString": "contract IERC721"
+                                        }
+                                    },
+                                    "visibility": "internal"
+                                },
+                                {
+                                    "constant": false,
+                                    "id": 219,
+                                    "mutability": "mutable",
+                                    "name": "_tokenId",
+                                    "nameLocation": "905:8:3",
+                                    "nodeType": "VariableDeclaration",
+                                    "scope": 225,
+                                    "src": "900:13:3",
+                                    "stateVariable": false,
+                                    "storageLocation": "default",
+                                    "typeDescriptions": {
+                                        "typeIdentifier": "t_uint256",
+                                        "typeString": "uint256"
+                                    },
+                                    "typeName": {
+                                        "id": 218,
+                                        "name": "uint",
+                                        "nodeType": "ElementaryTypeName",
+                                        "src": "900:4:3",
+                                        "typeDescriptions": {
+                                            "typeIdentifier": "t_uint256",
+                                            "typeString": "uint256"
+                                        }
+                                    },
+                                    "visibility": "internal"
+                                }
+                            ],
+                            "src": "885:29:3"
+                        },
+                        "returnParameters": {
+                            "id": 223,
+                            "nodeType": "ParameterList",
+                            "parameters": [],
+                            "src": "937:0:3"
+                        },
+                        "scope": 226,
+                        "src": "868:72:3",
+                        "stateMutability": "nonpayable",
+                        "virtual": false,
+                        "visibility": "external"
+                    }
+                ],
+                "scope": 227,
+                "src": "291:651:3",
+                "usedErrors": []
+            }
+        ],
+        "src": "33:910:3"
+    },
+    "functionHashes": {
+        "feeAccount()": "65e17c9d",
+        "feePercent()": "7fd6f15c",
+        "itemCount()": "6bfb0d01",
+        "items(uint256)": "bfb231d2",
+        "makeItem(address,uint256)": "1a1beae2"
+    },
+    "gasEstimates": {
+        "creation": {
+            "codeDepositCost": "119600",
+            "executionCost": "infinite",
+            "totalCost": "infinite"
+        },
+        "external": {
+            "feeAccount()": "infinite",
+            "feePercent()": "infinite",
+            "itemCount()": "2317",
+            "items(uint256)": "11105",
+            "makeItem(address,uint256)": "24499"
+        }
+    }
+}

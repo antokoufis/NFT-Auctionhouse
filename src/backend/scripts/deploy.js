@@ -8,12 +8,17 @@ async function main() {
   // deploy contracts here:
   const NFT = await ethers.getContractFactory("NFT");
   const nft = await NFT.deploy();
-  
+
+  const Auctionhouse = await ethers.getContractFactory("Auctionhouse");
+  const auctionhouse = await Auctionhouse.deploy(1);
+
   // For each contract, pass the deployed contract and name to this function to save a copy of the contract ABI and address to the front end.
-  saveFrontendFiles(nft , "NFT");
-  
+  saveFrontendFiles(nft, "NFT");
+  saveFrontendFiles(auctionhouse , "Auctionhouse");
+
   // For each contract, show the address on log
   console.log("NFT Adress:", nft.address);
+  console.log("Auctionhouse Adress", auctionhouse.address);
 }
 
 function saveFrontendFiles(contract, name) {

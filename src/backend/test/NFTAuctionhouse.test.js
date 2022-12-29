@@ -24,26 +24,54 @@ describe("NFTAuctionhouse", function () {
             expect(await nft.symbol()).to.equal(nftSymbol);
         });
 
-        it("Should track feeAccount and feePercent of the auctionhouse", async function () {
-            expect(await auctionhouse.feeAccount()).to.equal(deployer.address);
-            expect(await auctionhouse.feePercent()).to.equal(feePercent);
+    it("Should track feeAccount and feePercent of the auctionhouse", async function () {
+        expect(await auctionhouse.feeAccount()).to.equal(deployer.address);
+        expect(await auctionhouse.feePercent()).to.equal(feePercent);
         });
-    })
+      })
 
-    //Create a test for listing Items
-    describe("Minting NFTs", function () {
+      //Create a test for listing Items
+      describe("Minting NFTs", function () {
 
         it("Should track each minted NFT", async function () {
+          // addr1 mints an nft
+          await nft.connect(addr1).mint(URI)
+          expect(await nft.tokenCount()).to.equal(1);
+          expect(await nft.balanceOf(addr1.address)).to.equal(1);
+          expect(await nft.tokenURI(1)).to.equal(URI);
+          // addr2 mints an nft
+          await nft.connect(addr2).mint(URI)
+          expect(await nft.tokenCount()).to.equal(2);
+          expect(await nft.balanceOf(addr2.address)).to.equal(1);
+          expect(await nft.tokenURI(2)).to.equal(URI);
+        });
+      })
+
+      describe("Making items", function () {
+        beforeEach(async function () {
             // addr1 mints an nft
             await nft.connect(addr1).mint(URI)
-            expect(await nft.tokenCount()).to.equal(1);
-            expect(await nft.balanceOf(addr1.address)).to.equal(1);
-            expect(await nft.tokenURI(1)).to.equal(URI);
-            // addr2 mints an nft
-            await nft.connect(addr2).mint(URI)
-            expect(await nft.tokenCount()).to.equal(2);
-            expect(await nft.balanceOf(addr2.address)).to.equal(1);
-            expect(await nft.tokenURI(2)).to.equal(URI);
-        });
-    })
+          })
+
+          it("Should track newly created item and emit ListedItems event", async function () {
+
+            await expect(auctionhouse.connect(addr1).makeItem(nft.address, 1))
+            .to.emit(auctionhouse, "ListedItems")
+            .withArgs(
+              1,
+              nft.address,
+              1,
+              addr1.address,
+            )
+
+            expect(await auctionhouse.itemCount()).to.equal(1)
+            // Get item from items mapping then check fields to ensure they are correct
+            const item = await auctionhouse.items(1)
+            expect(item.itemId).to.equal(1)
+            expect(item.nft).to.equal(nft.address)
+            expect(item.tokenId).to.equal(1)
+            expect(item.owner).to.equal(addr1.address)
+            expect(item.status).to.equal(1)
+          });
+      });
 })

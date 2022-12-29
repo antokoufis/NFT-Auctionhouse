@@ -17,8 +17,8 @@ async function main() {
   saveFrontendFiles(auctionhouse , "Auctionhouse");
 
   // For each contract, show the address on log
-  console.log("NFT Adress:", nft.address);
-  console.log("Auctionhouse Adress", auctionhouse.address);
+  console.log("NFT Address:", nft.address);
+  console.log("Auctionhouse Address", auctionhouse.address);
 }
 
 function saveFrontendFiles(contract, name) {

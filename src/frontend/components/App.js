@@ -11,7 +11,7 @@ function App() {
           <main role="main" className="col-lg-12 d-flex text-center">
             <div className="content mx-auto mt-5">
                 <img src={logo} className="App-logo" alt="logo"/>
-              <h1 className= "mt-5">NFTAuctionhouse</h1>
+              <h1 className= "mt-5">Auctionhouse</h1>
               <p>
                 Edit <code>src/frontend/components/App.js</code> and save to reload.
               </p>

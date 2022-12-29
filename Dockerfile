@@ -3,7 +3,6 @@ FROM node:14
 # Install hardhat
 RUN npm install -g hardhat
 
-
 # Copy project files into the container
 COPY . /app
 

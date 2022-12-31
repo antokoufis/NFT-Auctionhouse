@@ -11,6 +11,7 @@ contract Auctionhouse is ReentrancyGuard {
     // the fee percentage on sales
     uint256 public immutable feePercent;
     uint256 public itemCount;
+    uint256 public auctionCount;
 
     // Add structs
     struct Item {
@@ -40,6 +41,15 @@ contract Auctionhouse is ReentrancyGuard {
         address indexed owner
     );
 
+    event ListedAuctions(
+        uint256 indexed auctionId,
+        uint256 indexed itemId,
+        address indexed auctioneer,
+        uint256 startingPrice,
+        uint256 endDateTime,
+        uint256 status
+    );
+
     constructor(uint256 _feePercent) {
         feeAccount = payable(msg.sender);
         feePercent = _feePercent;
@@ -56,5 +66,35 @@ contract Auctionhouse is ReentrancyGuard {
         );
 
         emit ListedItems(itemCount, address(_nft), _tokenId, msg.sender);
+    }
+
+    function makeAuction(
+        uint256 _itemId,
+        uint256 _startingPrice,
+        uint256 _endDateTime
+    ) external nonReentrant {
+        auctionCount++;
+        Item storage item = items[_itemId];
+
+        auctions[auctionCount] = Auction(
+            auctionCount,
+            _itemId,
+            payable(msg.sender),
+            _startingPrice,
+            _endDateTime,
+            1
+        );
+
+        item.status = 2;
+        item.nft.transferFrom(msg.sender, address(this), item.tokenId);
+
+        emit ListedAuctions(
+            auctionCount,
+            _itemId,
+            msg.sender,
+            _startingPrice,
+            _endDateTime,
+            1
+        );
     }
 }

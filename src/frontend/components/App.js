@@ -1,5 +1,15 @@
 import logo from './logo.png';
 import './App.css';
+import Navigation from './Navbar';
+import {
+  BrowserRouter,
+  Routes,
+  Route
+} from "react-router-dom";
+
+import Home from './Home.js'
+import CreateItems from './CreateItems.js'
+import MyItems from './MyItems.js'
 
 import AuctionhouseAbi from '../contractsData/Auctionhouse.json'
 import AuctionhouseAddress from '../contractsData/Auctionhouse-address.json'
@@ -33,26 +43,33 @@ function App() {
     const nft = new ethers.Contract(NFTAddress.address, NFTAbi.abi, signer)
     setNFT(nft)
     setLoading(false)
-}
+  }
 
   return (
-    <div>
-      <nav className="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
-      </nav>
-      <div className="container-fluid mt-5">
-        <div className="row">
-          <main role="main" className="col-lg-12 d-flex text-center">
-            <div className="content mx-auto mt-5">
-              <img src={logo} className="App-logo" alt="logo" />
-              <h1 className="mt-5">Auctionhouse</h1>
-              <p>
-                Edit <code>src/frontend/components/App.js</code> and save to reload.
-              </p>
-            </div>
-          </main>
+    <BrowserRouter>
+      <div>
+        <Navigation web3Handler={web3Handler} account={account} />
+        <div className="container-fluid mt-5">
+          <div className="row">
+            <main role="main" className="col-lg-12 d-flex text-center">
+              <div className="content mx-auto mt-5">
+                <Routes>
+                  <Route path="/" element={
+                    <Home auctionhouse={auctionhouse} nft={nft} />
+                  } />
+                  <Route path="/items/my-items" element={
+                    <MyItems auctionhouse={auctionhouse} nft={nft} />
+                  } />
+                  <Route path="/items/create-items" element={
+                    <CreateItems auctionhouse={auctionhouse} nft={nft} />
+                  } />
+                </Routes>
+              </div>
+            </main>
+          </div>
         </div>
       </div>
-    </div>
+    </BrowserRouter>
   );
 }
 

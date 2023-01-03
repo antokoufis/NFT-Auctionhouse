@@ -31,8 +31,18 @@ contract Auctionhouse is ReentrancyGuard {
         uint256 status;
     }
 
+    struct Bid {
+        uint256 bidId;
+        uint256 auctionId;
+        uint256 bidPrice;
+        uint256 timestamp;
+        address payable bidder;
+        uint256 status;
+    }
+
     mapping(uint256 => Item) public items;
     mapping(uint256 => Auction) public auctions;
+    mapping(uint256 => Bid) public bids;
 
     event ListedItems(
         uint256 itemId,

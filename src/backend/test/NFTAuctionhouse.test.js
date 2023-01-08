@@ -1,15 +1,16 @@
 const { expect } = require("chai");
 const toWei = (num) => ethers.utils.parseEther(num.toString())
+const fromWei = (num) => ethers.utils.formatEther(num)
 
 describe("NFTAuctionhouse", function () {
-  let deployer, addr1, addr2, nft, auctionhouse
+  let deployer, addr1, addr2, addr3, nft, auctionhouse
   let feePercent = 1
   let URI = "sample URI"
 
   beforeEach(async function () {
     const NFT = await ethers.getContractFactory("NFT");
     const Auctionhouse = await ethers.getContractFactory("Auctionhouse");
-    [deployer, addr1, addr2] = await ethers.getSigners();
+    [deployer, addr1, addr2, addr3] = await ethers.getSigners();
     nft = await NFT.deploy();
     auctionhouse = await Auctionhouse.deploy(feePercent);
   });
@@ -93,13 +94,13 @@ describe("NFTAuctionhouse", function () {
 
     it("Should track newly created auction and emit ListedAuctions event", async function () {
 
-      await expect(auctionhouse.connect(addr1).makeAuction(1, toWei(12), 1704598623))
+      await expect(auctionhouse.connect(addr1).makeAuction(1, toWei(0.12), 1704598623))
         .to.emit(auctionhouse, "ListedAuctions")
         .withArgs(
           1,
           1,
           addr1.address,
-          toWei(12),
+          toWei(0.12),
           1704598623,
           0,
           1
@@ -112,7 +113,7 @@ describe("NFTAuctionhouse", function () {
       expect(auction.auctionId).to.equal(1)
       expect(auction.itemId).to.equal(1)
       expect(auction.auctioneer).to.equal(addr1.address)
-      expect(auction.startingPrice).to.equal(toWei(12))
+      expect(auction.startingPrice).to.equal(toWei(0.12))
       expect(auction.endDateTime).to.equal(1704598623)
       expect(auction.winningBid).to.equal(0)
       expect(auction.status).to.equal(1)
@@ -131,27 +132,41 @@ describe("NFTAuctionhouse", function () {
       // addr1 making an auction
       // addr1 approves marketplace to spend nft
       await nft.connect(addr1).setApprovalForAll(auctionhouse.address, true)
-      await auctionhouse.connect(addr1).makeAuction(1, toWei(12), 1704598623)
-
+      await auctionhouse.connect(addr1).makeAuction(1, toWei(0.12), 1704598623)
     });
 
 
     it("Should track newly created bid and emit ListedItems event", async function () {
-
-      await expect(auctionhouse.connect(addr2).makeBid(1, toWei(13)))
+      await expect(auctionhouse.connect(addr2).makeBid(1, toWei(0.15), { value: toWei(0.15) }))
         .to.emit(auctionhouse, "ListedBid")
-
 
       // Get item from items mapping then check fields to ensure they are correct
       const bid = await auctionhouse.bids(1)
 
       expect(bid.bidId).to.equal(1)
       expect(bid.auctionId).to.equal(1)
-      expect(bid.bidPrice).to.equal(toWei(13))
+      expect(bid.bidPrice).to.equal(toWei(0.15))
       expect(bid.bidder).to.equal(addr2.address)
       expect(bid.status).to.equal(1)
       const auction = await auctionhouse.auctions(bid.auctionId)
       expect(auction.winningBid).to.equal(1)
     });
+
+    it("Should track newly created bid and emit ListedItems event", async function () {
+      await expect(auctionhouse.connect(addr3).makeBid(1, toWei(0.20), { value: toWei(0.20) }))
+        .to.emit(auctionhouse, "ListedBid")
+
+      // Get item from items mapping then check fields to ensure they are correct
+      const bid = await auctionhouse.bids(1)
+
+      expect(bid.bidId).to.equal(1)
+      expect(bid.auctionId).to.equal(1)
+      expect(bid.bidPrice).to.equal(toWei(0.20))
+      expect(bid.bidder).to.equal(addr3.address)
+      expect(bid.status).to.equal(1)
+      const auction = await auctionhouse.auctions(bid.auctionId)
+      expect(auction.winningBid).to.equal(1)
+    });
+
   });
-})
+});

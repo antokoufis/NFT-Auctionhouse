@@ -4,6 +4,8 @@ pragma solidity ^0.8.4;
 
 import "@openzeppelin/contracts/token/ERC721/IERC721.sol";
 import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
+import "hardhat/console.sol";
+
 
 contract Auctionhouse is ReentrancyGuard {
     // the account that receives fees
@@ -98,6 +100,8 @@ contract Auctionhouse is ReentrancyGuard {
         auctionCount++;
         Item storage item = items[_itemId];
         require(item.status == 1);
+        require(item.owner == msg.sender);
+        require(_startingPrice>0);
         auctions[auctionCount] = Auction(
             auctionCount,
             _itemId,
@@ -124,7 +128,7 @@ contract Auctionhouse is ReentrancyGuard {
         );
     }
 
-    function makeBid(uint256 _auctionId, uint256 _bidPrice) external nonReentrant {
+    function makeBid(uint256 _auctionId, uint256 _bidPrice) external payable nonReentrant {
         
         Auction storage auction = auctions[_auctionId];
         
@@ -143,7 +147,8 @@ contract Auctionhouse is ReentrancyGuard {
                 payable(msg.sender),
                 1
             );
-            feeAccount.transfer(_bidPrice);
+            
+            payable(address(this)).transfer(msg.value);
             auction.winningBid = bidCount;
         } else {
             Bid storage bid = bids[auction.winningBid];
@@ -161,7 +166,7 @@ contract Auctionhouse is ReentrancyGuard {
 
             bid.bidder.transfer(bid.bidPrice);
             bid.status = 2;
-            feeAccount.transfer(_bidPrice);
+            payable(address(this)).transfer(msg.value);
             auction.winningBid = bidCount;
         }
 
@@ -174,4 +179,8 @@ contract Auctionhouse is ReentrancyGuard {
             1
         );
     }
+
+    receive() external payable {
+    }
+    
 }
